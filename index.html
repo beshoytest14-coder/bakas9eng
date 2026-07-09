@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Programming Basics Exam - 100 Questions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Fira+Code:wght@400;600&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-color: #c9d1d9;
+            --accent-color: #58a6ff;
+            --success-color: #2ea44f;
+            --danger-color: #f85149;
+            --warning-color: #f0883e;
+            --border-color: #30363d;
+            --gold: #d4af37;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 120px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin: 10px 0 5px 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s, opacity 0.3s;
+            margin: 5px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn:disabled {
+            background-color: #21262d;
+            color: #8b949e;
+            cursor: not-allowed;
+        }
+
+        .btn-youtube {
+            background-color: #ff0000;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+        }
+
+        .btn-check {
+            background-color: #8957e5;
+        }
+
+        .btn-pdf {
+            background-color: #e5533d;
+        }
+
+        .btn-image {
+            background-color: #9c6ade;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37, #f5d780);
+            color: #2b1e00;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: white;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+        }
+
+        .timer-box {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--warning-color);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: 'Fira Code', monospace;
+            z-index: 1000;
+        }
+
+        .badge {
+            background-color: #21262d;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .pass-badge {
+            display: inline-block;
+            background-color: rgba(46, 164, 79, 0.15);
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .option-item {
+            margin-bottom: 12px;
+            background-color: var(--bg-color);
+            padding: 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .option-item:hover {
+            background-color: #1f242c;
+        }
+
+        .option-item input {
+            margin-left: 12px;
+            cursor: pointer;
+        }
+
+        .option-item.correct {
+            background-color: rgba(46, 164, 79, 0.15) !important;
+            border-color: var(--success-color) !important;
+        }
+
+        .option-item.wrong {
+            background-color: rgba(248, 81, 73, 0.15) !important;
+            border-color: var(--danger-color) !important;
+        }
+
+        .feedback-msg {
+            font-weight: bold;
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        #quiz-container,
+        #result-container {
+            display: none;
+        }
+
+        .interactive-tab {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .interactive-tab-header {
+            background-color: #1f242c;
+            padding: 12px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .interactive-tab-header:hover {
+            background-color: #282e38;
+        }
+
+        .interactive-tab-content {
+            padding: 15px;
+            background-color: var(--bg-color);
+            display: none;
+            border-top: 1px solid var(--border-color);
+            white-space: pre-wrap;
+            line-height: 1.7;
+        }
+
+        .interactive-tab.active .interactive-tab-content {
+            display: block;
+        }
+
+        .interactive-tab-header::after {
+            content: '📂';
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .interactive-tab.active .interactive-tab-header::after {
+            transform: rotate(90deg);
+        }
+
+        .progress-bar-outer {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            height: 10px;
+            overflow: hidden;
+            margin: 12px 0 20px 0;
+        }
+
+        .progress-bar-inner {
+            background: linear-gradient(90deg, var(--accent-color), #79c0ff);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .qcode {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 6px;
+            direction: ltr;
+            text-align: left;
+            font-family: 'Fira Code', monospace;
+            overflow-x: auto;
+            color: #ff7b72;
+            white-space: pre-wrap;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        /* ================= Certificate Design ================= */
+        /* This section builds the final certificate look on the page, from background to border and gold accent. */
+        /* This defines the main certificate container and adds subtle visual effects. */
+        .certificate-wrapper {
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .certificate-box {
+            width: 100%;
+            min-width: 620px;
+            max-width: 900px;
+            margin: 20px auto;
+            position: relative;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.10), transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(88, 166, 255, 0.10), transparent 40%),
+                linear-gradient(135deg, #0f1420 0%, #182238 60%, #0f1420 100%);
+            border: 2px solid var(--gold);
+            border-radius: 14px;
+            padding: 34px 40px;
+            box-sizing: border-box;
+            color: #eef2f7;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .certificate-box::before {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border: 1.5px dashed rgba(212, 175, 55, 0.55);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .cert-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+
+        .cert-academy-name {
+            text-align: center;
+            flex: 1;
+        }
+
+        .cert-academy-name .cert-academy-title {
+            font-size: 1.05rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        .cert-academy-name .cert-academy-sub {
+            font-size: 0.75rem;
+            color: #9fb0c3;
+            margin-top: 2px;
+        }
+
+        .cert-serial {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.7rem;
+            color: #8ea2ba;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .cert-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 18px 0;
+        }
+
+        .cert-heading {
+            text-align: center;
+            margin: 8px 0 4px 0;
+        }
+
+        .cert-heading .cert-main-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 0 0 18px rgba(212, 175, 55, 0.35);
+        }
+
+        .cert-heading .cert-subtitle {
+            font-size: 0.95rem;
+            color: #b9c6d6;
+            margin-top: 6px;
+        }
+
+        .cert-body {
+            text-align: center;
+            margin: 22px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-body .cert-intro-line {
+            font-size: 1rem;
+            color: #c8d3e0;
+        }
+
+        .cert-student-name {
+            font-family: 'Amiri', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 14px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.5);
+            display: inline-block;
+            min-width: 60%;
+        }
+
+        .cert-body .cert-course-line {
+            font-size: 1rem;
+            color: #c8d3e0;
+            line-height: 1.9;
+        }
+
+        .cert-course-line b {
+            color: #ffffff;
+        }
+
+        .cert-score-row {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin: 18px 0 6px 0;
+            flex-wrap: wrap;
+        }
+
+        .cert-score-pill {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .cert-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 34px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-signature {
+            text-align: center;
+        }
+
+        .cert-signature .sig-line {
+            width: 160px;
+            border-top: 1.5px solid #8ea2ba;
+            margin-bottom: 6px;
+        }
+
+        .cert-signature .sig-name {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .cert-signature .sig-role {
+            font-size: 0.7rem;
+            color: #9fb0c3;
+        }
+
+        .cert-seal {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px double var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.65rem;
+            font-weight: bold;
+            color: var(--gold);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12), transparent 70%);
+            line-height: 1.3;
+            transform: rotate(-8deg);
+        }
+
+        .cert-date {
+            text-align: center;
+        }
+
+        .cert-date .date-label {
+            font-size: 0.7rem;
+            color: #9fb0c3;
+        }
+
+        .cert-date .date-value {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ffffff;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .not-passed-box {
+            text-align: center;
+            border: 2px dashed var(--danger-color);
+            border-radius: 12px;
+            padding: 30px 20px;
+            background-color: rgba(248, 81, 73, 0.06);
+        }
+
+        .not-passed-box h3 {
+            color: var(--danger-color);
+            font-size: 1.4rem;
+            margin-top: 0;
+        }
+
+        @media (max-width: 640px) {
+            .cert-body .cert-student-name {
+                font-size: 1.7rem;
+            }
+
+            .cert-heading .cert-main-title {
+                font-size: 1.5rem;
+            }
+
+            .cert-bottom-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="timer-box" id="timer-box" style="display: none;">Time left: <span id="timer-display">90:00</span>
+    </div>
+
+    <header>
+        <img src="https://h.top4top.io/p_3841l3kdp1.png" alt="Mr. Robot Academy logo" class="logo">
+        <h1>Mr. Robot Academy</h1>
+        <p>Engineer / Andrew Magdy</p>
+        <a href="https://youtube.com/@mrrobotacademy?si=OnsqGekQOfPy-_QL" target="_blank"
+            class="btn btn-youtube">Official YouTube Channel</a>
+    </header>
+
+    <div class="container">
+
+        <section id="quiz-setup" class="card">
+            <h2>📝 AI & Programming Basics Quiz (100 Questions)</h2>
+            <p>A complete 100-question exam covering Python, JavaScript, and AI fundamentals. The passing score for the
+                certificate is <b>60%</b> or higher. Enter your full name exactly as you want it to appear on the
+                certificate.</p>
+            <div class="input-group">
+                <label for="student-name-input">Student Name (as it will appear on the certificate):</label>
+                <input type="text" id="student-name-input" placeholder="Type your full name here...">
+            </div>
+            <button class="btn" style="width: 100%; margin: 10px 0;" onclick="startQuiz()">Start the interactive quiz
+                now 🚀</button>
+        </section>
+
+        <section id="quiz-container" class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2 id="question-title">Current Question:</h2>
+                <span class="badge" id="quiz-progress">Question 1 of 100</span>
+            </div>
+            <div class="progress-bar-outer">
+                <div class="progress-bar-inner" id="progress-bar-inner"></div>
+            </div>
+
+            <div id="dynamic-quiz-area"></div>
+
+            <div id="feedback-area"></div>
+
+            <div class="nav-controls">
+                <button class="btn" id="prev-quiz-btn" onclick="navigateQuiz(-1)">Previous</button>
+                <button class="btn btn-check" id="check-ans-btn" onclick="checkCurrentAnswer()">Check Answer 🔍</button>
+                <button class="btn" id="next-quiz-btn" onclick="navigateQuiz(1)">Next</button>
+            </div>
+
+            <button type="button" class="btn"
+                style="background-color: var(--success-color); width: 100%; margin-top: 25px;"
+                onclick="submitQuiz()">Submit the full quiz and submit answers ✔</button>
+        </section>
+
+        <section id="result-container" class="card">
+            <h2>🎉 Final Quiz Result</h2>
+            <p id="score-summary"></p>
+
+            <div id="pass-block" style="display:none;">
+                <!-- This is where the final certificate design appears after the student passes -->
+                <div class="certificate-wrapper">
+                    <div class="certificate-box" id="certificate">
+                        <!-- This starts the top of the certificate: logo, academy name, and serial number -->
+                        <div class="cert-top-row">
+                            <img class="cert-logo" src="https://h.top4top.io/p_3841l3kdp1.png" alt="Academy logo">
+                            <div class="cert-academy-name">
+                                <div class="cert-academy-title">Mr. Robot Academy</div>
+                                <div class="cert-academy-sub">Mr. Robot Academy — Programming & Artificial Intelligence
+                                </div>
+                            </div>
+                            <div class="cert-serial">
+                                No: <span id="cert-serial-num">MRA-000000</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-divider"></div>
+
+                        <div class="cert-heading">
+                            <div class="cert-main-title">Certificate of Completion</div>
+                            <div class="cert-subtitle">Certificate of Achievement</div>
+                        </div>
+
+                        <div class="cert-body">
+                            <div class="cert-intro-line">This is to certify that the student</div>
+                            <div class="cert-student-name" id="cert-name">Mr. Robot Academy Student</div>
+                            <div class="cert-course-line">
+                                has successfully completed the exam<br>
+                                <b>AI & Programming Basics (Python and JavaScript)</b><br>
+                                consisting of 100 questions, and achieved the required passing score to earn this
+                                certificate.
+                            </div>
+                            <div class="cert-score-row">
+                                <span class="cert-score-pill" id="cert-score">Score: 100%</span>
+                                <span class="cert-score-pill" id="cert-answers-count">Correct Answers: 100 out of
+                                    100</span>
+                            </div>
+                        </div>
+
+                        <div class="cert-bottom-row">
+                            <div class="cert-signature">
+                                <div class="sig-line"></div>
+                                <div class="sig-name">Engineer / Andrew Magdy</div>
+                                <div class="sig-role">Founder of the Academy</div>
+                            </div>
+                            <div class="cert-seal">Academy<br>Mr. Robot<br>Certified</div>
+                            <div class="cert-date">
+                                <div class="date-label">Issue Date</div>
+                                <div class="date-value" id="cert-date">--/--/----</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-gold" onclick="downloadCertificatePDF()">Download Certificate PDF 📄</button>
+                    <button class="btn btn-image" onclick="downloadCertificateImage()">Download Certificate as Image
+                        🖼️</button>
+                    <button class="btn" onclick="printCertificate()">Print Certificate 🖨️</button>
+                    <button class="btn btn-whatsapp" onclick="shareToWhatsApp()">Share Result on WhatsApp 📱</button>
+                </div>
+            </div>
+
+            <div id="fail-block" style="display:none;">
+                <div class="not-passed-box">
+                    <h3>Not yet — keep going 💪</h3>
+                    <p>You need to reach at least <b>60%</b> to earn the passing certificate. Review the hints and
+                        correct answers carefully, study again, and you can pass next time!</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="btn" style="background-color: #6e7681;" onclick="location.reload()">Restart Quiz
+                    🔄</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // --- 100-question quiz data ---
+        const quizData = [
+            {
+                "q": "What is the output of this code?\nname = \"Ali\"\nprint(name)",
+                "opts": [
+                    "Error",
+                    "name",
+                    "Ali",
+                    "\"Ali\" in quotes"
+                ],
+                "ans": 2,
+                "hint": "print() outputs the variable's value, not its name."
+            },
+            {
+                "q": "age = input(\"Enter your age: \" )\nWhat data type does input() always return?",
+                "opts": [
+                    "Integer (int)",
+                    "Float (float)",
+                    "Boolean",
+                    "String"
+                ],
+                "ans": 3,
+                "hint": "input() always returns text, even if the user types a number."
+            },
+            {
+                "q": "To convert the input value to an integer so we can compare it with numbers, write:",
+                "opts": [
+                    "age = input(\"Enter your age: \" )",
+                    "age = int(input(\"Enter your age: \" ))",
+                    "age = float(input(\"Enter your age: \" )) without using it",
+                    "age = str(input(\"Enter your age: \" ))"
+                ],
+                "ans": 1,
+                "hint": "int() converts the text returned by input() into an integer."
+            },
+            {
+                "q": "name = input(\"What is your name? \" )\nprint(\"Hello\", name)\nIf the user types Sara, what does it print?",
+                "opts": [
+                    "Error",
+                    "Sara Hello",
+                    "Hello Sara",
+                    "Hello name"
+                ],
+                "ans": 2,
+                "hint": "The comma in print() separates values and adds a space automatically."
+            },
+            {
+                "q": "In print(\"Hello\", name), what does the comma do exactly?",
+                "opts": [
+                    "Joins text without any space",
+                    "Separates values and adds a space between them",
+                    "Causes a syntax error",
+                    "Repeats the value twice"
+                ],
+                "ans": 1,
+                "hint": "Try running the code and compare the comma with +."
+            },
+            {
+                "q": "What is the correct way to define a variable in Python?",
+                "opts": [
+                    "var name = \"Ali\"",
+                    "name := \"Ali\"",
+                    "name = \"Ali\"",
+                    "let name = \"Ali\""
+                ],
+                "ans": 2,
+                "hint": "Python does not need let or var like JavaScript."
+            },
+            {
+                "q": "age = 20\nif age > 18:\n    print(\"Adult\")\nWhat will it print?",
+                "opts": [
+                    "nothing",
+                    "Error",
+                    "20",
+                    "Adult"
+                ],
+                "ans": 3,
+                "hint": "20 is greater than 18, so the condition is true."
+            },
+            {
+                "q": "age = int(input(...))\nif age >= 18:\n    print(\"You are adult\")\nelse:\n    print(\"You are young\")\nIf the user types 15, what does it print?",
+                "opts": [
+                    "Error",
+                    "You are young",
+                    "15",
+                    "You are adult"
+                ],
+                "ans": 1,
+                "hint": "15 is less than 18, so execution goes to the else branch."
+            },
+            {
+                "q": "if age < 13:\n    print(\"Child\")\nelif age < 18:\n    print(\"Teen\")\nelse:\n    print(\"Adult\")\nIf age = 16, what does it print?",
+                "opts": [
+                    "Child",
+                    "Adult",
+                    "Teen",
+                    "16"
+                ],
+                "ans": 2,
+                "hint": "16 is not less than 13, but it is less than 18."
+            },
+            {
+                "q": "Using the same code, if age = 10, what does it print?",
+                "opts": [
+                    "Teen",
+                    "10",
+                    "Adult",
+                    "Child"
+                ],
+                "ans": 3,
+                "hint": "10 is less than 13, so the first if branch runs."
+            },
+            {
+                "q": "In the greenhouse system:\nif temperature > 30:\n    print(\"Turn on fan cooling immediately\")\nelif temperature < 15:\n    print(\"Turn on heating system\")\nIf temperature = 32, what happens?",
+                "opts": [
+                    "It prints an error",
+                    "It turns on fan cooling because the temperature is high",
+                    "It turns on heating",
+                    "No action is taken"
+                ],
+                "ans": 1,
+                "hint": "32 is greater than 30, so the first if branch runs."
+            },
+            {
+                "q": "if soil_moisture < 35:\n    print(\"Turn on irrigation pump\")\nIf soil_moisture = 25, what happens?",
+                "opts": [
+                    "All systems stop",
+                    "No action because the soil is wet",
+                    "It prints an error",
+                    "The irrigation pump runs because the soil is dry"
+                ],
+                "ans": 3,
+                "hint": "25 is less than 35, so the soil is dry and the condition is true."
+            },
+            {
+                "q": "if username == \"ahmed\" and password == \"superSecretPassword\":\n    print(\"Login successful\")\nFor this message to print, what must be true?",
+                "opts": [
+                    "No condition is needed",
+                    "Both values must be false",
+                    "Both username and password must be correct at the same time",
+                    "Only one of them needs to be correct"
+                ],
+                "ans": 2,
+                "hint": "and requires both conditions to be true together."
+            },
+            {
+                "q": "is_student = False\nage = 65\nif is_student == True or age >= 60:\n    print(\"Eligible for discount\")\nWill the message print? Why?",
+                "opts": [
+                    "No, because is_student is False",
+                    "No, nothing will print",
+                    "Yes, because age 65 satisfies the or condition",
+                    "No, both conditions must be true"
+                ],
+                "ans": 2,
+                "hint": "or needs only one true condition."
+            },
+            {
+                "q": "What is the main difference between and and or in conditions?",
+                "opts": [
+                    "and and or do the exact same thing",
+                    "and requires only one condition",
+                    "or requires both conditions",
+                    "and requires both conditions true, while or needs only one true"
+                ],
+                "ans": 3,
+                "hint": "Think of and as 'both must be true' and or as 'at least one true'."
+            },
+            {
+                "q": "grades = [70, 80, 90, 60, 75]\ntotal = 0\nfor grade in grades:\n    total += grade\nWhat does total contain at the end?",
+                "opts": [
+                    "The sum of all grades in the list",
+                    "Only the first grade",
+                    "The number of grades",
+                    "The highest grade"
+                ],
+                "ans": 0,
+                "hint": "+= adds each new value to the previous total."
+            },
+            {
+                "q": "grades = [70, 80, 90, 60, 75]\nWhat is len(grades)?",
+                "opts": [
+                    "5",
+                    "375",
+                    "4",
+                    "70"
+                ],
+                "ans": 0,
+                "hint": "len() returns the number of elements in the list."
+            },
+            {
+                "q": "grades = []\nfor i in range(3):\n    grade = int(input(...))\n    grades.append(grade)\nHow many times does this loop run?",
+                "opts": [
+                    "Infinite",
+                    "3 times",
+                    "Once",
+                    "Twice"
+                ],
+                "ans": 1,
+                "hint": "range(3) generates 0, 1, 2, so it runs 3 times."
+            },
+            {
+                "q": "grades = [70, 80, 90, 60, 75]\nprint(\"Max:\", max(grades))\nWhat does it print?",
+                "opts": [
+                    "Max: 70",
+                    "Max: 90",
+                    "Max: 375",
+                    "Max: 60"
+                ],
+                "ans": 1,
+                "hint": "max() returns the largest value from the list."
+            },
+            {
+                "q": "Using the same list, print(\"Min:\", min(grades)) prints what?",
+                "opts": [
+                    "Min: 0",
+                    "Min: 90",
+                    "Min: 70",
+                    "Min: 60"
+                ],
+                "ans": 3,
+                "hint": "min() returns the smallest value in the list."
+            },
+            {
+                "q": "for i in range(1, 6):\n    if i % 2 == 0:\n        print(\"Even number:\", i)\nWhich numbers does it print?",
+                "opts": [
+                    "2 and 4",
+                    "1 and 2 and 3 and 4 and 5",
+                    "1 and 3 and 5",
+                    "Only 5"
+                ],
+                "ans": 0,
+                "hint": "% 2 == 0 means the number is divisible by 2 with no remainder, so it is even."
+            },
+            {
+                "q": "for attempt in range(1, 4):\n    ...\n    if attempt == 3:\n        print(\"Account locked\")\nWhen does the lock message appear?",
+                "opts": [
+                    "At every attempt",
+                    "Only on the third attempt",
+                    "Never",
+                    "On the first attempt"
+                ],
+                "ans": 1,
+                "hint": "The condition is true when attempt equals 3 exactly."
+            },
+            {
+                "q": "for battery in range(95, 101):\n    print(\"Charge percentage:\", battery)\nHow many values does this code print?",
+                "opts": [
+                    "Only one value",
+                    "5 values",
+                    "100 values",
+                    "6 values (from 95 to 100)"
+                ],
+                "ans": 3,
+                "hint": "range(95, 101) includes 95 and stops before 101, so the last value is 100."
+            },
+            {
+                "q": "toys = [\"car\", \"ball\"]\ntoys.append(\"plane\")\nprint(toys)\nWhat does it print?",
+                "opts": [
+                    "[\"car\", \"ball\"]",
+                    "[\"car\", \"ball\", \"plane\"]",
+                    "Error",
+                    "[\"plane\", \"car\", \"ball\"]"
+                ],
+                "ans": 1,
+                "hint": "append() adds the item at the end of the list."
+            },
+            {
+                "q": "toys = [\"car\", \"ball\"]\ntoys.insert(0, \"train\")\nprint(toys)\nWhat does it print?",
+                "opts": [
+                    "[\"train\", \"ball\"]",
+                    "[\"train\", \"car\", \"ball\"]",
+                    "[\"car\", \"ball\", \"train\"]",
+                    "Error"
+                ],
+                "ans": 1,
+                "hint": "insert(0, ...) places the element at the start of the list."
+            },
+            {
+                "q": "toys = [\"car\", \"ball\", \"plane\"]\ntoys.remove(\"ball\")\nprint(toys)\nWhat does it print?",
+                "opts": [
+                    "Error",
+                    "[\"car\", \"ball\"]",
+                    "[\"ball\", \"plane\"]",
+                    "[\"car\", \"plane\"]"
+                ],
+                "ans": 3,
+                "hint": "remove() removes the specified item by name from the list."
+            },
+            {
+                "q": "toys = [\"car\", \"ball\", \"plane\"]\nlast_toy = toys.pop()\nprint(last_toy)\nWhat does it print?",
+                "opts": [
+                    "plane",
+                    "car",
+                    "None",
+                    "ball"
+                ],
+                "ans": 0,
+                "hint": "pop() without an index returns and removes the last item."
+            },
+            {
+                "q": "After toys.pop() in the previous question, if we print(toys), what does it show?",
+                "opts": [
+                    "[\"car\", \"ball\"]",
+                    "[\"car\", \"ball\", \"plane\"]",
+                    "[\"plane\"]",
+                    "[]"
+                ],
+                "ans": 0,
+                "hint": "pop() removes the actual last item from the original list."
+            },
+            {
+                "q": "toys = [\"plane\", \"car\", \"ball\"]\ntoys.sort()\nprint(toys)\nWhat does it print?",
+                "opts": [
+                    "[\"car\", \"ball\", \"plane\"]",
+                    "[\"plane\", \"car\", \"ball\"]",
+                    "Error",
+                    "[\"ball\", \"car\", \"plane\"]"
+                ],
+                "ans": 3,
+                "hint": "sort() arranges the items alphabetically in ascending order."
+            },
+            {
+                "q": "Which list method removes the last item and returns it at the same time?",
+                "opts": [
+                    "remove()",
+                    "pop()",
+                    "append()",
+                    "insert()"
+                ],
+                "ans": 1,
+                "hint": "pop returns the removed value, unlike remove which requires the item name."
+            },
+            {
+                "q": "def say_hello(name):\n    print(\"Welcome to Python, \" + name + \"! 🚀\")\nsay_hello(\"Ahmed\")\nWhat does it print?",
+                "opts": [
+                    "Error",
+                    "Welcome to Python, name! 🚀",
+                    "Ahmed",
+                    "Welcome to Python, Ahmed! 🚀"
+                ],
+                "ans": 3,
+                "hint": "The function replaces name with the value we passed, Ahmed."
+            },
+            {
+                "q": "Which keyword do we use to start defining a function in Python?",
+                "opts": [
+                    "def",
+                    "func",
+                    "function",
+                    "define"
+                ],
+                "ans": 0,
+                "hint": "def is the keyword to define any function in Python."
+            },
+            {
+                "q": "def double_power(power):\n    super_power = power * 2\n    print(\"Your Super Power is:\", super_power)\ndouble_power(10)\nWhat does it print?",
+                "opts": [
+                    "Error",
+                    "Your Super Power is: 10",
+                    "Your Super Power is: 20",
+                    "Your Super Power is: 100"
+                ],
+                "ans": 2,
+                "hint": "power * 2 means 10 * 2 = 20."
+            },
+            {
+                "q": "def check_pass(name, degree):\n    if degree >= 50:\n        print(name, \"Pass\")\n    else:\n        print(name, \"Fail\")\ncheck_pass(\"Ali\", 45)\nWhat does it print?",
+                "opts": [
+                    "Ali Pass",
+                    "Error",
+                    "Ali Fail",
+                    "45 Fail"
+                ],
+                "ans": 2,
+                "hint": "45 is less than 50, so the else branch runs."
+            },
+            {
+                "q": "What is the role of the return keyword inside a function?",
+                "opts": [
+                    "Stops the whole program immediately",
+                    "Prints the value on the screen only",
+                    "Returns a value from the function so we can use it outside",
+                    "Has no function"
+                ],
+                "ans": 2,
+                "hint": "return is different from print because it sends the value back to the calling code."
+            },
+            {
+                "q": "check_pass(name, degree) - can a function take more than one parameter?",
+                "opts": [
+                    "No, a function always takes only one parameter",
+                    "No, that causes an error in Python",
+                    "Yes, and we separate them with commas inside parentheses",
+                    "Yes, but only if they are all numbers"
+                ],
+                "ans": 2,
+                "hint": "As seen in check_pass(name, degree), two parameters are separated by a comma."
+            },
+            {
+                "q": "In say_hello(\"Ahmed\"), the word \"Ahmed\" is called what?",
+                "opts": [
+                    "Argument",
+                    "Function",
+                    "Parameter without a value",
+                    "Return value"
+                ],
+                "ans": 0,
+                "hint": "A parameter is the name in the function definition, and an argument is the actual value passed."
+            },
+            {
+                "q": "When is it better to use a Dictionary instead of a List?",
+                "opts": [
+                    "Both do the same thing",
+                    "When we only want a list of names in order",
+                    "When we do not want to store any data",
+                    "When each item is paired with its own information (like product and price)"
+                ],
+                "ans": 3,
+                "hint": "A dictionary maps each key to a specific value."
+            },
+            {
+                "q": "menu = {\"Chips\": 10, \"Pepsi\": 15}\nfor item, price in menu.items():\n    print(item, price)\nWhat does .items() return?",
+                "opts": [
+                    "Both the key and value together",
+                    "Only the keys without values",
+                    "Only the values without keys",
+                    "The item count in the dictionary"
+                ],
+                "ans": 0,
+                "hint": ".items() returns (key, value) pairs so we can loop over them together."
+            },
+            {
+                "q": "students_dict = {}\nstudents_dict[name] = grade\nWhat does this line do?",
+                "opts": [
+                    "Adds the student's name as a key and the grade as a value in the dictionary",
+                    "Prints the student's name on the screen",
+                    "Converts the dictionary into a list",
+                    "Deletes the entire dictionary"
+                ],
+                "ans": 0,
+                "hint": "We use [ ] to add or update an element in the dictionary by its key."
+            },
+            {
+                "q": "shopping_list = [\"Chips\", \"Pepsi\", \"Chocolate\"]\nThis variable is of type:",
+                "opts": [
+                    "List",
+                    "Function",
+                    "Dictionary",
+                    "String"
+                ],
+                "ans": 0,
+                "hint": "These values are ordered and do not have associated keys, so it's a list."
+            },
+            {
+                "q": "menu = {\"Chips\": 10, \"Pepsi\": 15}\nThis variable is of type:",
+                "opts": [
+                    "Integer",
+                    "Function",
+                    "Dictionary",
+                    "List"
+                ],
+                "ans": 2,
+                "hint": "Each value is linked with a key, which defines a dictionary."
+            },
+            {
+                "q": "To loop over every key and value in a dictionary correctly, we write:",
+                "opts": [
+                    "for value in my_dict:",
+                    "for my_dict in key, value:",
+                    "for key, value in my_dict.items():",
+                    "for key in my_dict.values():"
+                ],
+                "ans": 2,
+                "hint": "You must use .items() to get both the key and value together."
+            },
+            {
+                "q": "with open(\"test.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(\"Welcome\")\nWhat does the letter \"w\" mean here?",
+                "opts": [
+                    "Wait",
+                    "Warning",
+                    "Write (creates or replaces the file)",
+                    "Read"
+                ],
+                "ans": 2,
+                "hint": "w stands for Write and opens the file so we can write into it."
+            },
+            {
+                "q": "with open(\"test.txt\", \"r\", encoding=\"utf-8\") as file:\n    content = file.read()\nWhat does the letter \"r\" mean here?",
+                "opts": [
+                    "Read",
+                    "Run",
+                    "Rewrite",
+                    "Remove"
+                ],
+                "ans": 0,
+                "hint": "r stands for Read and opens the file so we can read its content."
+            },
+            {
+                "q": "file.write(f\"{name}:{grade}\\n\")\nWhat does the \\n symbol at the end of the line do?",
+                "opts": [
+                    "Adds only one space",
+                    "Erases previous content",
+                    "Has no effect",
+                    "Moves the text to a new line in the file"
+                ],
+                "ans": 3,
+                "hint": "\\n is the newline character in many programming languages."
+            },
+            {
+                "q": "Why do we use with open(...) as file: instead of open(...) alone?",
+                "opts": [
+                    "So it automatically closes the file when finished reading or writing",
+                    "So the code becomes slower",
+                    "To prevent writing to the file",
+                    "It has no benefit, it just looks nicer"
+                ],
+                "ans": 0,
+                "hint": "with ensures the file closes automatically even if an error occurs."
+            },
+            {
+                "q": "def predict_score(hours):\n    return hours * 10 + 20\nWhat does this example illustrate?",
+                "opts": [
+                    "The computer guesses the answer randomly",
+                    "We wrote the rule ourselves, not the computer learning it",
+                    "This is an example of real artificial intelligence",
+                    "The computer learned the rule from data by itself"
+                ],
+                "ans": 1,
+                "hint": "The key difference between traditional programming and machine learning is who defines the rule."
+            },
+            {
+                "q": "model = LinearRegression()\nmodel.fit(X, y)\nWhat does the .fit() method do?",
+                "opts": [
+                    "It teaches the model from the data, which is the training stage",
+                    "It deletes the old data",
+                    "It draws a graph of the data",
+                    "It prints a final result on the screen"
+                ],
+                "ans": 0,
+                "hint": "fit means 'learn from' — it is the training step."
+            },
+            {
+                "q": "model.predict([[6]])\nWhat does the .predict() method do?",
+                "opts": [
+                    "It predicts a new value based on what the model learned before",
+                    "It erases the model completely",
+                    "It retrains the model from scratch",
+                    "It returns the same input data"
+                ],
+                "ans": 0,
+                "hint": "predict comes after training and uses what the model learned to make a new prediction."
+            },
+            {
+                "q": "data = pd.DataFrame({\"area\": [...], \"price\": [...]})\nX = data[[\"area\"]]\nIn a house price prediction example, what is X (the input)?",
+                "opts": [
+                    "Number of rooms",
+                    "Student name",
+                    "The price",
+                    "The area"
+                ],
+                "ans": 3,
+                "hint": "X always represents the inputs used to predict from."
+            },
+            {
+                "q": "y = data[\"price\"]\nIn the same example, what is y (the output)?",
+                "opts": [
+                    "The area",
+                    "Number of images",
+                    "Model name",
+                    "The price"
+                ],
+                "ans": 3,
+                "hint": "y always represents the result or the value we want to predict."
+            },
+            {
+                "q": "A DecisionTreeClassifier predicts whether a student passes or fails (0 or 1). This type of problem is called:",
+                "opts": [
+                    "Clustering",
+                    "Classification",
+                    "Sorting",
+                    "Regression"
+                ],
+                "ans": 1,
+                "hint": "When the result is a category like pass/fail, we call it classification."
+            },
+            {
+                "q": "LinearRegression predicts a student's score as a number (like 65 or 72). This type of problem is called:",
+                "opts": [
+                    "Clustering",
+                    "Encoding",
+                    "Classification",
+                    "Regression"
+                ],
+                "ans": 3,
+                "hint": "When the result is a continuous number, we call it regression."
+            },
+            {
+                "q": "What is the main difference between regression and classification?",
+                "opts": [
+                    "There is no difference",
+                    "Classification always predicts a number",
+                    "Regression always predicts a category",
+                    "Regression predicts a number, while classification predicts a category"
+                ],
+                "ans": 3,
+                "hint": "Think of price as a number versus pass/fail as a category."
+            },
+            {
+                "q": "Before training, does the computer (the model) know anything about cats and dogs?",
+                "opts": [
+                    "It knows half the information",
+                    "It knows the shape but not the color",
+                    "Yes, it knows everything without training",
+                    "No, exactly like a two-year-old child who has never seen a cat before"
+                ],
+                "ans": 3,
+                "hint": "Before training, the model starts from zero."
+            },
+            {
+                "q": "What are the weights according to the explanation?",
+                "opts": [
+                    "The number of images used in training",
+                    "The names of the images we train the model on",
+                    "The background color in the image",
+                    "Internal numbers that the computer adjusts during learning to reduce errors"
+                ],
+                "ans": 3,
+                "hint": "Think of them as small knobs the computer adjusts with each new example."
+            },
+            {
+                "q": "During training, when the model makes a wrong prediction, what happens next?",
+                "opts": [
+                    "It compares its prediction to the truth, then adjusts weights and tries again",
+                    "No change happens to the weights",
+                    "It deletes all the data and starts from zero",
+                    "It stops training immediately"
+                ],
+                "ans": 0,
+                "hint": "Learning is iterative: predict → compare → adjust → try again."
+            },
+            {
+                "q": "Why does the model need many images to learn instead of just one?",
+                "opts": [
+                    "To learn general shared features, not memorize one image, so it can generalize to new cases",
+                    "To slow down training",
+                    "There is no real reason, it is just a convention",
+                    "To use more memory"
+                ],
+                "ans": 0,
+                "hint": "More examples help the model understand the difference more broadly and accurately."
+            },
+            {
+                "q": "academy_data = {\"Student_Name\": [...], \"Score\": [...]}\ndf = pd.DataFrame(academy_data)\nWhat does this line do?",
+                "opts": [
+                    "Deletes all the data",
+                    "Draws a graph directly",
+                    "Converts the dictionary into a structured table (DataFrame)",
+                    "Converts the table into a dictionary"
+                ],
+                "ans": 2,
+                "hint": "pd.DataFrame() is the standard way to turn data into a table in Pandas."
+            },
+            {
+                "q": "df.loc[len(df)] = [\"Nour\", \"Python\", 88, 90]\nWhat does this line do?",
+                "opts": [
+                    "Adds a new row (student) at the end of the table",
+                    "Changes the first column name",
+                    "Deletes the last row in the table",
+                    "Sorts the table alphabetically"
+                ],
+                "ans": 0,
+                "hint": "len(df) gives the first empty row index at the end of the table to add new data."
+            },
+            {
+                "q": "df_cleaned = df.drop(columns=[\"Course\"])\nWhat does this line do?",
+                "opts": [
+                    "Adds a new column named Course",
+                    "Deletes the Course column from the table",
+                    "Deletes any rows where Course is empty",
+                    "Modifies only the values in the Course column"
+                ],
+                "ans": 1,
+                "hint": "drop(columns=[...]) removes a whole column from the table."
+            },
+            {
+                "q": "df.loc[6, \"Score\"] = None\ndf_filled = df.fillna(0)\nWhat does fillna(0) do?",
+                "opts": [
+                    "Turns the entire table to zeros",
+                    "Raises an error if there is a missing value",
+                    "Automatically replaces any missing value (None) with 0",
+                    "Deletes rows that contain missing values"
+                ],
+                "ans": 2,
+                "hint": "fillna fills missing values with the specified replacement value."
+            },
+            {
+                "q": "df.describe()\nWhat does this command show?",
+                "opts": [
+                    "A plot of the table",
+                    "Quick statistics like mean, max, and min for numeric columns",
+                    "A copied version of the table",
+                    "Only the column names"
+                ],
+                "ans": 1,
+                "hint": "describe() is a quick statistical summary for numeric columns."
+            },
+            {
+                "q": "passed_students = df[df[\"Score\"] >= 50]\nWhat does this line do?",
+                "opts": [
+                    "Sorts the table by score in ascending order",
+                    "Deletes students with scores below 50",
+                    "Adds a new column named Passed",
+                    "Filters the table and extracts only students with scores 50 or higher"
+                ],
+                "ans": 3,
+                "hint": "The condition inside [ ] returns only rows that satisfy it."
+            },
+            {
+                "q": "low_attendance = df[df[\"Attendance_pct\"] < 75]\nWhat does this line extract?",
+                "opts": [
+                    "The average attendance percentage for all students",
+                    "Students whose attendance is less than 75%",
+                    "All students without filtering",
+                    "Students whose attendance is 75% or higher"
+                ],
+                "ans": 1,
+                "hint": "Same filtering idea, but with a different condition on the attendance column."
+            },
+            {
+                "q": "df.plot(x=\"Student_Name\", y=\"Score\", kind=\"bar\", ...)\nThis draws which type of chart?",
+                "opts": [
+                    "Pie chart",
+                    "Bar chart",
+                    "Heatmap",
+                    "Line chart"
+                ],
+                "ans": 1,
+                "hint": "kind=\"bar\" means the chart will be bars."
+            },
+            {
+                "q": "df.style.background_gradient(cmap=\"Reds\", subset=[\"Score\"])\nWhat does this line do?",
+                "opts": [
+                    "Colors the score cells with a gradient, dark for high and light for low",
+                    "Deletes the score column entirely",
+                    "Draws a separate graph outside the table",
+                    "Converts scores to percentages"
+                ],
+                "ans": 0,
+                "hint": "background_gradient adds automatic coloring based on each cell's value."
+            },
+            {
+                "q": "fig = px.bar(df, x=..., y=..., color=...)\nfig.show()\nWhat is the main advantage of this plotly.express chart?",
+                "opts": [
+                    "It prints only on paper",
+                    "It is interactive, allowing the user to zoom and control it",
+                    "It is shown once and then disappears",
+                    "It is only black and white"
+                ],
+                "ans": 1,
+                "hint": "plotly produces interactive visuals unlike ordinary static charts."
+            },
+            {
+                "q": "let name = \"Ali\";\nconsole.log(name);\nWhat does it print?",
+                "opts": [
+                    "name",
+                    "Ali",
+                    "Error",
+                    "\"Ali\" in quotes"
+                ],
+                "ans": 1,
+                "hint": "console.log prints the variable's value, just like print in Python."
+            },
+            {
+                "q": "What is the JavaScript equivalent of Python's print()?,",
+                "opts": [
+                    "output()",
+                    "write()",
+                    "console.log()",
+                    "print()"
+                ],
+                "ans": 2,
+                "hint": "console.log() is the core print tool in JavaScript."
+            },
+            {
+                "q": "let name = \"Ali\";\nlet age = 17;\nconsole.log(`My name is ${name} and I am ${age}`);\nWhat does ${} do inside backticks?",
+                "opts": [
+                    "Transforms the variable into fixed text",
+                    "Erases the variable value",
+                    "Inserts the variable value directly into the string",
+                    "Causes a code error"
+                ],
+                "ans": 2,
+                "hint": "This is called a template literal, and it makes embedding variables in text easier."
+            },
+            {
+                "q": "What do most JavaScript statements end with?",
+                "opts": [
+                    "A colon :",
+                    "A semicolon ;",
+                    "A question mark ?",
+                    "No symbol"
+                ],
+                "ans": 1,
+                "hint": "A semicolon ; marks the end of a statement in JS."
+            },
+            {
+                "q": "let age = 17;\nThis line represents variable definition in:",
+                "opts": [
+                    "HTML",
+                    "Python and JavaScript together",
+                    "Python only",
+                    "JavaScript only using let"
+                ],
+                "ans": 3,
+                "hint": "Python does not have let; you write a variable directly like age = 17."
+            },
+            {
+                "q": "Which JavaScript keyword defines a variable whose value can change later?",
+                "opts": [
+                    "int",
+                    "const",
+                    "let",
+                    "var only"
+                ],
+                "ans": 2,
+                "hint": "let defines a variable that can change later in the code."
+            },
+            {
+                "q": "let age = 16;\nif (age >= 18) {\n  console.log(\"Adult\");\n} else {\n  console.log(\"Minor\");\n}\nWhat does it print?",
+                "opts": [
+                    "Minor",
+                    "Adult",
+                    "16",
+                    "Error"
+                ],
+                "ans": 0,
+                "hint": "16 is less than 18, so the else branch runs."
+            },
+            {
+                "q": "Which symbol represents the AND operation in JavaScript?",
+                "opts": [
+                    "||",
+                    "==",
+                    "&&",
+                    "!"
+                ],
+                "ans": 2,
+                "hint": "&& stands for AND, requiring both conditions to be true."
+            },
+            {
+                "q": "Which symbol represents the OR operation in JavaScript?",
+                "opts": [
+                    "!",
+                    "&&",
+                    "==",
+                    "||"
+                ],
+                "ans": 3,
+                "hint": "|| stands for OR; only one side needs to be true."
+            },
+            {
+                "q": "Which symbol represents NOT in JavaScript?",
+                "opts": [
+                    "||",
+                    "!",
+                    "==",
+                    "&&"
+                ],
+                "ans": 1,
+                "hint": "The exclamation mark ! flips a Boolean from true to false and vice versa."
+            },
+            {
+                "q": "let isOpen = true;\nconsole.log(!isOpen);\nWhat does it print?",
+                "opts": [
+                    "true",
+                    "false",
+                    "isOpen",
+                    "Error"
+                ],
+                "ans": 1,
+                "hint": "! negates the value, so true becomes false."
+            },
+            {
+                "q": "if (hasTicket && !isVip) {\n  console.log(\"Access granted\");\n}\nWhen is this condition true?",
+                "opts": [
+                    "When hasTicket is true and isVip is false at the same time",
+                    "When only hasTicket is true regardless of isVip",
+                    "When isVip is true",
+                    "The condition never becomes true"
+                ],
+                "ans": 0,
+                "hint": "&& needs both conditions true, and one of them is the negation of isVip."
+            },
+            {
+                "q": "if (!(isAdult || hasParentalConsent)) {\n  console.log(\"Access denied\");\n}\nWhen exactly is access denied?",
+                "opts": [
+                    "When either one of them is true",
+                    "Always denied",
+                    "When only isAdult is true",
+                    "When both isAdult and hasParentalConsent are false"
+                ],
+                "ans": 3,
+                "hint": "The ! outside the parentheses flips the || result, so both must be false."
+            },
+            {
+                "q": "function min2(num1, num2) {\n  if (num1 < num2) {\n    return num1;\n  } else {\n    return num2;\n  }\n}\nconsole.log(min2(5, 10));\nWhat does it print?",
+                "opts": [
+                    "10",
+                    "5",
+                    "15",
+                    "Error"
+                ],
+                "ans": 1,
+                "hint": "The function returns the smaller of the two values."
+            },
+            {
+                "q": "console.log(Math.round(9.6));\nWhat does it print?",
+                "opts": [
+                    "9.6",
+                    "9",
+                    "10",
+                    "10.0"
+                ],
+                "ans": 2,
+                "hint": "Math.round rounds to the nearest integer, and 9.6 rounds up to 10."
+            },
+            {
+                "q": "console.log(Math.floor(5.5));\nWhat does it print?",
+                "opts": [
+                    "0",
+                    "6",
+                    "5",
+                    "5.5"
+                ],
+                "ans": 2,
+                "hint": "Math.floor returns the largest integer less than or equal to the value."
+            },
+            {
+                "q": "console.log(Math.max(5, 10, 50));\nWhat does it print?",
+                "opts": [
+                    "10",
+                    "50",
+                    "5",
+                    "65"
+                ],
+                "ans": 1,
+                "hint": "Math.max returns the largest value among the arguments."
+            },
+            {
+                "q": "console.log(Math.min(5, 10, 50));\nWhat does it print?",
+                "opts": [
+                    "0",
+                    "10",
+                    "5",
+                    "50"
+                ],
+                "ans": 2,
+                "hint": "Math.min returns the smallest value among the arguments."
+            },
+            {
+                "q": "function sum(num1, num2) {\n  let result = num1 + num2;\n  return result;\n}\nconsole.log(sum(50, 100));\nWhat does it print?",
+                "opts": [
+                    "100",
+                    "50",
+                    "5000",
+                    "150"
+                ],
+                "ans": 3,
+                "hint": "The function adds the two numbers and returns the result: 50 + 100 = 150."
+            },
+            {
+                "q": "for (let i = 1; i <= 5; i++) {\n  console.log(i);\n}\nHow many times does this loop repeat?",
+                "opts": [
+                    "5 times",
+                    "Once",
+                    "6 times",
+                    "4 times"
+                ],
+                "ans": 0,
+                "hint": "It starts at 1 and stops when i becomes greater than 5, so it runs 1 through 5."
+            },
+            {
+                "q": "let fruits = [\"apple\", \"banana\", \"orange\"];\nconsole.log(fruits[0]);\nWhat does it print?",
+                "opts": [
+                    "banana",
+                    "Error",
+                    "apple",
+                    "orange"
+                ],
+                "ans": 2,
+                "hint": "Array indexing starts at zero."
+            },
+            {
+                "q": "let friends = [\"Ahmed\", \"Omar\", \"Ali\", \"Sara\"];\nconsole.log(friends.length);\nWhat does it print?",
+                "opts": [
+                    "3",
+                    "friends",
+                    "Error",
+                    "4"
+                ],
+                "ans": 3,
+                "hint": "length returns the total number of array elements."
+            },
+            {
+                "q": "for (let item of shoppingList) { ... }\nWhat is this loop used for?",
+                "opts": [
+                    "To delete all items from the array",
+                    "To iterate over each element directly without needing an i counter",
+                    "To sort the array",
+                    "To count the number of array elements only"
+                ],
+                "ans": 1,
+                "hint": "for...of gives you each element value directly, not its index."
+            },
+            {
+                "q": "let grades = [30, 55, 80, 45, 90];\nIn a loop that increments success++ when grades[i] >= 50, how many students pass?",
+                "opts": [
+                    "5 students",
+                    "Only one student",
+                    "3 students (55, 80, 90)",
+                    "2 students"
+                ],
+                "ans": 2,
+                "hint": "Compare each grade with 50: only 30 and 45 are below 50."
+            },
+            {
+                "q": "What does the array.length property return?",
+                "opts": [
+                    "The first element of the array",
+                    "The number of array elements",
+                    "The array data type",
+                    "The largest value in the array"
+                ],
+                "ans": 1,
+                "hint": "length returns the count of all elements in the array."
+            },
+            {
+                "q": "What is the Python equivalent of the JavaScript true/false values?",
+                "opts": [
+                    "True / False (capitalized)",
+                    "Yes / No",
+                    "true / false (lowercase)",
+                    "1 / 0 only"
+                ],
+                "ans": 0,
+                "hint": "Python writes Boolean values with a capital first letter: True and False."
+            },
+            {
+                "q": "What is the Python equivalent of else if in JavaScript?",
+                "opts": [
+                    "elseif",
+                    "else:if",
+                    "elif",
+                    "else_if"
+                ],
+                "ans": 2,
+                "hint": "Python uses one short keyword elif instead of else if."
+            },
+            {
+                "q": "Python relies on ________ instead of curly braces {} to define code blocks?",
+                "opts": [
+                    "Indentation",
+                    "Semicolons (;) ",
+                    "Parentheses ()",
+                    "Quotation marks"
+                ],
+                "ans": 0,
+                "hint": "Python uses leading whitespace to define blocks instead of {}."
+            },
+            {
+                "q": "What Python keyword corresponds to the JavaScript ! (not) operator?",
+                "opts": [
+                    "elif",
+                    "not",
+                    "or",
+                    "and"
+                ],
+                "ans": 1,
+                "hint": "not negates the condition in Python, just like ! in JavaScript."
+            },
+            {
+                "q": "Which two words in Python correspond to && and || in JavaScript?",
+                "opts": [
+                    "if and else",
+                    "true and false",
+                    "not and elif",
+                    "and and or"
+                ],
+                "ans": 3,
+                "hint": "and corresponds to &&, and or corresponds to ||."
+            },
+            {
+                "q": "Which language uses the semicolon ; to end most statements?",
+                "opts": [
+                    "Python",
+                    "Both in the same way",
+                    "Neither",
+                    "JavaScript"
+                ],
+                "ans": 3,
+                "hint": "Python usually does not need a semicolon at the end of the line."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let studentAnswers = new Array(quizData.length).fill(null);
+        let studentName = "";
+        let quizTimer = null;
+        let timeLeft = 5400; // Full 90-minute exam time (100 questions)
+
+        function startQuiz() {
+            const nameInput = document.getElementById('student-name-input').value.trim();
+            if (nameInput === "") {
+                alert("Please enter your full name to start the quiz and generate the certificate successfully! 🚀");
+                return;
+            }
+            studentName = nameInput;
+            document.getElementById('quiz-setup').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+            document.getElementById('timer-box').style.display = 'block';
+
+            startTimer();
+            loadQuizQuestion(currentQuizIndex);
+        }
+
+        function startTimer() {
+            quizTimer = setInterval(function () {
+                timeLeft--;
+                let mins = Math.floor(timeLeft / 60);
+                let secs = timeLeft % 60;
+                document.getElementById('timer-display').innerText =
+                    (mins < 10 ? "0" + mins : mins) + ":" + (secs < 10 ? "0" + secs : secs);
+
+                if (timeLeft <= 0) {
+                    clearInterval(quizTimer);
+                    alert("The auto quiz time has ended! Your current answers will be collected and submitted for evaluation immediately.");
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        function loadQuizQuestion(index) {
+            const qData = quizData[index];
+            document.getElementById('quiz-progress').innerText = `Question ${index + 1} of ${quizData.length}`;
+            document.getElementById('question-title').innerText = `Current Question (${index + 1}):`;
+            document.getElementById('progress-bar-inner').style.width = ((index + 1) / quizData.length * 100) + '%';
+
+            let html = `
+                <div class="qcode">${qData.q}</div>
+
+                <div class="interactive-tab">
+                    <div class="interactive-tab-header" onclick="this.parentElement.classList.toggle('active')">💡 Click here to show Engineer Andrew's helpful hint for solving this question</div>
+                    <div class="interactive-tab-content">${qData.hint}</div>
+                </div>
+
+                <ul class="options-list">
+                    ${qData.opts.map((opt, oIdx) => `
+                        <li class="option-item" id="opt-item-${oIdx}" onclick="selectOption(${oIdx})">
+                            <input type="radio" name="quiz-opt" id="opt-${oIdx}" value="${oIdx}" ${studentAnswers[index] === oIdx ? 'checked' : ''}>
+                            <label for="opt-${oIdx}" style="cursor:pointer; width:100%; display:block;">${opt}</label>
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+
+            document.getElementById('dynamic-quiz-area').innerHTML = html;
+            document.getElementById('feedback-area').innerHTML = "";
+
+            document.getElementById('prev-quiz-btn').disabled = (index === 0);
+            document.getElementById('next-quiz-btn').disabled = (index === quizData.length - 1);
+        }
+
+        function selectOption(optIdx) {
+            document.getElementById(`opt-${optIdx}`).checked = true;
+            studentAnswers[currentQuizIndex] = optIdx;
+        }
+
+        function checkCurrentAnswer() {
+            const selected = studentAnswers[currentQuizIndex];
+            if (selected === null) {
+                document.getElementById('feedback-area').innerHTML = `<p class="feedback-msg" style="color: var(--warning-color);">⚠️ Please select an answer first before checking!</p>`;
+                return;
+            }
+
+            const correctAns = quizData[currentQuizIndex].ans;
+
+            for (let i = 0; i < quizData[currentQuizIndex].opts.length; i++) {
+                const item = document.getElementById(`opt-item-${i}`);
+                if (item) {
+                    item.classList.remove('correct', 'wrong');
+                    if (i === correctAns) item.classList.add('correct');
+                    else if (i === selected) item.classList.add('wrong');
+                }
+            }
+
+            if (selected === correctAns) {
+                document.getElementById('feedback-area').innerHTML = `<p class="feedback-msg" style="color: var(--success-color);">🎉 Great answer! Correct choice — keep going.</p>`;
+            } else {
+                document.getElementById('feedback-area').innerHTML = `<p class="feedback-msg" style="color: var(--danger-color);">❌ Incorrect answer. Review the hint above and try again with confidence!</p>`;
+            }
+        }
+
+        function navigateQuiz(direction) {
+            currentQuizIndex += direction;
+            if (currentQuizIndex >= 0 && currentQuizIndex < quizData.length) {
+                loadQuizQuestion(currentQuizIndex);
+            }
+        }
+
+        function generateSerial() {
+            const rand = Math.floor(100000 + Math.random() * 900000);
+            return "MRA-" + rand;
+        }
+
+        // This part calculates the score and decides if the student earns the certificate
+        function submitQuiz() {
+            let unanswered = 0;
+            studentAnswers.forEach(ans => { if (ans === null) unanswered++; });
+
+            if (unanswered > 0) {
+                if (!confirm(`Warning! You have ${unanswered} unanswered questions remaining in the exam. Do you want to continue and finish the quiz anyway?`)) {
+                    return;
+                }
+            }
+
+            clearInterval(quizTimer);
+            document.getElementById('timer-box').style.display = 'none';
+
+            let finalScore = 0;
+            let totalQuestions = quizData.length;
+
+            quizData.forEach((quiz, index) => {
+                if (studentAnswers[index] === quiz.ans) {
+                    finalScore++;
+                }
+            });
+
+            let percentage = Math.round((finalScore / totalQuestions) * 100);
+            const passed = percentage >= 60;
+
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('result-container').style.display = 'block';
+            document.getElementById('score-summary').innerHTML =
+                `${passed ? '<span class="pass-badge">✔ Passed</span>' : ''}You answered <b>${finalScore}</b> out of <b>${totalQuestions}</b> questions correctly, with a final score of <b>${percentage}%</b>.`;
+
+            if (passed) {
+                document.getElementById('pass-block').style.display = 'block';
+                document.getElementById('fail-block').style.display = 'none';
+
+                document.getElementById('cert-name').innerText = studentName;
+                document.getElementById('cert-score').innerText = `Score: ${percentage}%`;
+                document.getElementById('cert-answers-count').innerText = `Correct Answers: ${finalScore} out of ${totalQuestions}`;
+                document.getElementById('cert-serial-num').innerText = generateSerial();
+
+                const today = new Date();
+                const dd = String(today.getDate()).padStart(2, '0');
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const yyyy = today.getFullYear();
+                document.getElementById('cert-date').innerText = `${dd}/${mm}/${yyyy}`;
+            } else {
+                document.getElementById('pass-block').style.display = 'none';
+                document.getElementById('fail-block').style.display = 'block';
+            }
+        }
+
+        // This part shares the result on WhatsApp after the certificate appears
+        function shareToWhatsApp() {
+            const targetPhone = "201555772562";
+            const currentScore = document.getElementById('cert-score').innerText.split(': ')[1];
+            const message = `Hello Engineer / Andrew, I am the student: ${studentName}.\nI completed the AI and Programming Basics exam with a score of ${currentScore}! 🎉🤖`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // This part makes the certificate into an image and downloads it as a file
+        function downloadCertificateImage() {
+            const certEl = document.getElementById('certificate');
+            html2canvas(certEl, { scale: 2, backgroundColor: "#0f1420" }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `Certificate-${studentName || 'Student'}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+
+        // This part converts the certificate to a PDF file for download or printing
+        function downloadCertificatePDF() {
+            const certEl = document.getElementById('certificate');
+            html2canvas(certEl, { scale: 2, backgroundColor: "#0f1420" }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const { jsPDF } = window.jspdf;
+                const orientation = canvas.width > canvas.height ? 'l' : 'p';
+                const pdf = new jsPDF(orientation, 'pt', [canvas.width, canvas.height]);
+                pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+                pdf.save(`Certificate-${studentName || 'Student'}.pdf`);
+            });
+        }
+
+        // This part opens the certificate in a print-ready window
+        function printCertificate() {
+            const certEl = document.getElementById('certificate');
+            html2canvas(certEl, { scale: 2, backgroundColor: "#0f1420" }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const printWindow = window.open('', '_blank');
+                printWindow.document.write(`
+                    <html dir="ltr"><head><title>Print Certificate</title>
+                    <style>
+                        body{margin:0;display:flex;align-items:center;justify-content:center;background:#fff;}
+                        img{max-width:100%;height:auto;}
+                        @media print { body { margin:0; } }
+                    </style>
+                    </head><body>
+                    <img src="${imgData}" onload="window.print();">
+                    </body></html>
+                `);
+                printWindow.document.close();
+            });
+        }
+
+        window.onload = function () {
+            loadQuizQuestion(currentQuizIndex);
+        };
+    </script>
+</body>
+
+</html>
